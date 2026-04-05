@@ -231,7 +231,9 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-assets/
+assets/temp
+assets/backgrounds
+/.vscode
 out
 .DS_Store
 .setup-done-before
@@ -243,3 +245,4 @@ video_creation/data/videos.json
 video_creation/data/envvars.txt
 
 config.toml
+*.exe

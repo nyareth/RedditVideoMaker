@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
 import random
-from utils import settings
+
 from gtts import gTTS
 
-max_chars = 0
+from utils import settings
 
 
 class GTTS:
@@ -11,7 +10,7 @@ class GTTS:
         self.max_chars = 5000
         self.voices = []
 
-    def run(self, text, filepath):
+    def run(self, text, filepath, random_voice: bool = False):
         tts = gTTS(
             text=text,
             lang=settings.config["reddit"]["thread"]["post_lang"] or "en",

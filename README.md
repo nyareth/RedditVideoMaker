@@ -32,33 +32,66 @@ The only original thing being done is the editing and gathering of all materials
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.10
 - Playwright (this should install automatically in installation)
 
 ## Installation 👩‍💻
 
-1. Clone this repository
-2. Run `pip install -r requirements.txt`
+1. Clone this repository:
+    ```sh
+    git clone https://github.com/elebumm/RedditVideoMakerBot.git
+    cd RedditVideoMakerBot
+    ```
 
-3. Run `python -m playwright install` and `python -m playwright install-deps`
+2. Create and activate a virtual environment:
+    - On **Windows**:
+        ```sh
+        python -m venv ./venv
+        .\venv\Scripts\activate
+        ```
+    - On **macOS and Linux**:
+        ```sh
+        python3 -m venv ./venv
+        source ./venv/bin/activate
+        ```
+
+3. Install the required dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. Install Playwright and its dependencies:
+    ```sh
+    python -m playwright install
+    python -m playwright install-deps
+    ```
+
+---
 
 **EXPERIMENTAL!!!!**
 
-On MacOS and Linux (debian, arch, fedora and centos, and based on those), you can run an install script that will automatically install steps 1 to 3. (requires bash)
+   - On macOS and Linux (Debian, Arch, Fedora, CentOS, and based on those), you can run an installation script that will automatically install steps 1 to 3. (requires bash)
+   - `bash <(curl -sL https://raw.githubusercontent.com/elebumm/RedditVideoMakerBot/master/install.sh)`
+   - This can also be used to update the installation
 
-`bash <(curl -sL https://raw.githubusercontent.com/elebumm/RedditVideoMakerBot/master/install.sh)`
+---
 
-This can also be used to update the installation
+5. Run the bot:
+    ```sh
+    python main.py
+    ```
 
-4. Run `python main.py`
-5. Visit [the Reddit Apps page.](https://www.reddit.com/prefs/apps), and set up an app that is a "script". Paste any URL in redirect URL. Ex:google.com
-6. The bot will ask you to fill in your details to connect to the Reddit API, and configure the bot to your liking
-7. Enjoy 😎
-8. If you need to reconfigure the bot, simply open the `config.toml` file and delete the lines that need to be changed. On the next run of the bot, it will help you reconfigure those options.
+6. Visit [the Reddit Apps page](https://www.reddit.com/prefs/apps), and set up an app that is a "script". Paste any URL in the redirect URL field, for example: `https://jasoncameron.dev`.
 
-(Note if you got an error installing or running the bot try first rerunning the command with a three after the name e.g. python3 or pip3)
+7. The bot will prompt you to fill in your details to connect to the Reddit API and configure the bot to your liking.
 
-If you want to read more detailed guide about the bot, please refer to the [documentation](https://luka-hietala.gitbook.io/documentation-for-the-reddit-bot/)
+8. Enjoy 😎
+
+9. If you need to reconfigure the bot, simply open the `config.toml` file and delete the lines that need to be changed. On the next run of the bot, it will help you reconfigure those options.
+
+(Note: If you encounter any errors installing or running the bot, try using `python3` or `pip3` instead of `python` or `pip`.)
+
+For a more detailed guide about the bot, please refer to the [documentation](https://reddit-video-maker-bot.netlify.app/).
 
 ## Video
 
@@ -71,6 +104,7 @@ In its current state, this bot does exactly what it needs to do. However, improv
 I have tried to simplify the code so anyone can read it and start contributing at any skill level. Don't be shy :) contribute!
 
 - [ ] Creating better documentation and adding a command line interface.
+- [x] Allowing the user to choose background music for their videos.
 - [x] Allowing users to choose a reddit thread instead of being randomized.
 - [x] Allowing users to choose a background that is picked instead of the Minecraft one.
 - [x] Allowing users to choose between any subreddit.
@@ -81,16 +115,28 @@ I have tried to simplify the code so anyone can read it and start contributing a
 
 Please read our [contributing guidelines](CONTRIBUTING.md) for more detailed information.
 
+### For any questions or support join the [Discord](https://discord.gg/qfQSx45xCV) server
+
 ## Developers and maintainers.
 
 Elebumm (Lewis#6305) - https://github.com/elebumm (Founder)
 
-Jason (JasonLovesDoggo#1904) - https://github.com/JasonLovesDoggo (Maintainer)
+Jason Cameron - https://github.com/JasonLovesDoggo (Maintainer)
+
+Simon (OpenSourceSimon) - https://github.com/OpenSourceSimon
 
 CallumIO (c.#6837) - https://github.com/CallumIO
 
-Verq (Verq#2338) - https://github.com/CordlessCoder 
+Verq (Verq#2338) - https://github.com/CordlessCoder
 
 LukaHietala (Pix.#0001) - https://github.com/LukaHietala
 
-Freebiell (Freebie#6429) - https://github.com/FreebieII
+Freebiell (Freebie#3263) - https://github.com/FreebieII
+
+Aman Raza (electro199#8130) - https://github.com/electro199
+
+Cyteon (cyteon) - https://github.com/cyteon
+
+
+## LICENSE
+[Roboto Fonts](https://fonts.google.com/specimen/Roboto/about) are licensed under [Apache License V2](https://www.apache.org/licenses/LICENSE-2.0)

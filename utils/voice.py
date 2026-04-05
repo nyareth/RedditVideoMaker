@@ -1,16 +1,19 @@
 import re
 import sys
-from datetime import datetime
 import time as pytime
+from datetime import datetime
 from time import sleep
 
+from cleantext import clean
 from requests import Response
+
+from utils import settings
 
 if sys.version_info[0] >= 3:
     from datetime import timezone
 
 
-def check_ratelimit(response: Response):
+def check_ratelimit(response: Response) -> bool:
     """
     Checks if the response is a ratelimit response.
     If it is, it sleeps for the time specified in the response.
@@ -27,7 +30,7 @@ def check_ratelimit(response: Response):
     return True
 
 
-def sleep_until(time):
+def sleep_until(time) -> None:
     """
     Pause your program until a specific end time.
     'time' is either a valid datetime object or unix timestamp in seconds (i.e. seconds since Unix epoch)
@@ -81,8 +84,13 @@ def sanitize_text(text: str) -> str:
     result = re.sub(regex_urls, " ", text)
 
     # note: not removing apostrophes
-    regex_expr = r"\s['|’]|['|’]\s|[\^_~@!&;#:\-–—%“”‘\"%\*/{}\[\]\(\)\\|<>=+]"
+    regex_expr = r"\s['|’]|['|’]\s|[\^_~@!&;#:\-%—“”‘\"%\*/{}\[\]\(\)\\|<>=+]"
     result = re.sub(regex_expr, " ", result)
     result = result.replace("+", "plus").replace("&", "and")
+
+    # emoji removal if the setting is enabled
+    if settings.config["settings"]["tts"]["no_emojis"]:
+        result = clean(result, no_emoji=True)
+
     # remove extra whitespace
     return " ".join(result.split())

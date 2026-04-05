@@ -1,18 +1,17 @@
-#!/usr/bin/env python
-
-from typing import Dict, Tuple
+from typing import Tuple
 
 from rich.console import Console
 
+from TTS.aws_polly import AWSPolly
+from TTS.elevenlabs import elevenlabs
 from TTS.engine_wrapper import TTSEngine
 from TTS.GTTS import GTTS
-from TTS.streamlabs_polly import StreamlabsPolly
-from TTS.aws_polly import AWSPolly
-from TTS.TikTok import TikTok
+from TTS.openai_tts import OpenAITTS
 from TTS.pyttsx import pyttsx
+from TTS.streamlabs_polly import StreamlabsPolly
+from TTS.TikTok import TikTok
 from utils import settings
-from utils.console import print_table, print_step
-
+from utils.console import print_step, print_table
 
 console = Console()
 
@@ -22,6 +21,8 @@ TTSProviders = {
     "StreamlabsPolly": StreamlabsPolly,
     "TikTok": TikTok,
     "pyttsx": pyttsx,
+    "ElevenLabs": elevenlabs,
+    "OpenAI": OpenAITTS,
 }
 
 
